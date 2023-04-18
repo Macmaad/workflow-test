@@ -10,7 +10,7 @@ on:
       - completed
 
 jobs:
-  change_variable_status:
+  check-variable-status:
     runs-on: ubuntu-latest
     steps:
       - name: Fail on bad status
