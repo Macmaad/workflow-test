@@ -1,0 +1,21 @@
+name: change variable value
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  change:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          gh api \
+            --method PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/macmaad/workflow-test/actions/variables/ENV_DEPLOYMENT_STATUS \
+            -f name='ENV_DEPLOYMENT_STATUS' \
+            -f value='PENDING'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
