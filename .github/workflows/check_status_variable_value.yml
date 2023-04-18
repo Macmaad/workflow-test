@@ -1,6 +1,9 @@
 name: Check variable value
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   change_variable_status:
