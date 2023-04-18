@@ -9,6 +9,6 @@ jobs:
   change_variable_status:
     runs-on: ubuntu-latest
     steps:
-      - run: gh variable set ENV_DEPLOYMENT_STATUS --body "PENDING"
+      - run: gh variable set ENV_DEPLOYMENT_STATUS --body "PENDING" --repos workflow-test
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
