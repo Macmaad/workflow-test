@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+  workflow_run:
+    workflows: [change variable value]
+    types:
+      - completed
 
 jobs:
   change_variable_status:
