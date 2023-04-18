@@ -1,0 +1,10 @@
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "/repos/macmaad/workflow-test/pulls?state=open"
+
+
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/macmaad/workflow-test/commits/89613f763a87b584371340660d61df42f792f7fa/check-runs
