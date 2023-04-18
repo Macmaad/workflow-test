@@ -10,5 +10,6 @@ jobs:
     if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     steps:
-      - name: change value
-        run: ${{ env.ENV_DEPLOYMENT_STATUS = "PENDING" }}
+      - run: gh variable set ENV_DEPLOYMENT_STATUS --body "PENDING"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
