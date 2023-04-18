@@ -1,14 +1,14 @@
-name: Check
+name: Check variable value
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   change_variable_status:
     runs-on: ubuntu-latest
     steps:
-      - run: gh variable set ENV_DEPLOYMENT_STATUS --body "PENDING" --repos workflow-test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Fail on bad status
+        if: ${{ vars.ENV_DEPLOYMENT_STATUS != 'SUCCESS' }}
+        run: |
+          echo "Variable not in the correct state"
+          exit 1
+
