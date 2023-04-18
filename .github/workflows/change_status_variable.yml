@@ -1,4 +1,4 @@
-name: Change variable status
+name: Check
 
 on:
   push:
@@ -11,4 +11,4 @@ jobs:
     steps:
       - run: gh variable set ENV_DEPLOYMENT_STATUS --body "PENDING"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
