@@ -7,7 +7,7 @@ on:
 
 jobs:
   change_variable_status:
-    if: ${{ github.event.pull_request.merged }}
+    if: ${{ github.event.pull_request.merged == true}}
     runs-on: ubuntu-latest
     steps:
       - run: gh variable set ENV_DEPLOYMENT_STATUS --body "PENDING"
